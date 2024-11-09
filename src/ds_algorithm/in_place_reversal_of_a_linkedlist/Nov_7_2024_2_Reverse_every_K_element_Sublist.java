@@ -28,7 +28,7 @@ public class Nov_7_2024_2_Reverse_every_K_element_Sublist {
         while (current != null) {
             ListNode lastNodeOfPrevious = previous;
             ListNode lastNodeOfSubset = current;
-            ListNode next = null;
+            ListNode next;
             for (int i = 0; current != null && i < k; i++) {
                 next = current.next;
                 current.next = previous;

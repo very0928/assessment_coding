@@ -16,7 +16,7 @@ public class Nov_7_2024_3_Reverse_alternating_K_element_Sublist {
         while (current != null) {
             ListNode lastNodeOfPrevious = previous;
             ListNode lastNodeOfSublist = current;
-            ListNode next = null;
+            ListNode next;
             for (int i = 0; i < k && current != null; i++) {
                 next = current.next;
                 current.next = previous;

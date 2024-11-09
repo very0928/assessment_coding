@@ -1,7 +1,7 @@
 package common_bean;
 
 public class ListNode {
-    public int val = 0;
+    public int val;
     public ListNode next;
 
     public ListNode(int val) {

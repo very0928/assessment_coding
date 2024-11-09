@@ -36,7 +36,7 @@ public class Nov_7_2024_1_Reverse_a_Sublist {
 
         ListNode lastNodeOfPrevious = previous;
         ListNode lastNodeOfSubset = current;
-        ListNode next = null;
+        ListNode next;
         for (int i = p; current != null && i <= q; i++) {
             next = current.next;
             current.next = previous;

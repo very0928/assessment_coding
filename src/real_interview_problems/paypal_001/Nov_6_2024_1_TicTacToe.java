@@ -1,4 +1,4 @@
-package real_interview_problems.PayPal_001;
+package real_interview_problems.paypal_001;
 
 /**
  * 348. design-tic-tac-toe

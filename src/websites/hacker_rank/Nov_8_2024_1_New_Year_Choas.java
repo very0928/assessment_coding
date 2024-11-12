@@ -1,4 +1,4 @@
-package real_interview_problems.PayPal_002;
+package websites.hacker_rank;
 
 import java.io.BufferedReader;
 import java.io.IOException;

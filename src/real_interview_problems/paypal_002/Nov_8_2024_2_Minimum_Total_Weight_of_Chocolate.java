@@ -1,4 +1,4 @@
-package real_interview_problems.PayPal_002;
+package real_interview_problems.paypal_002;
 
 import java.util.ArrayList;
 import java.util.Arrays;

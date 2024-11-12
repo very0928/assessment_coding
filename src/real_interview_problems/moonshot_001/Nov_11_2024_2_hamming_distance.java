@@ -3,7 +3,7 @@ package real_interview_problems.moonshot_001;
 /**
  * Given two integers x and y, return the Hamming distance between them.
  * <p>
- * @see The hamming distance between two integers is the number of positions
+ * @see > The hamming distance between two inteers is the number of positions
  * at which the responding bits are different
  */
 public class Nov_11_2024_2_hamming_distance {

@@ -1,5 +1,8 @@
 package real_interview_problems.moonshot_001;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given two integers x and y, return the Hamming distance between them.
  * <p>
@@ -9,6 +12,7 @@ package real_interview_problems.moonshot_001;
 public class Nov_11_2024_2_hamming_distance {
     public static void main(String[] args) {
         System.out.println(hammingDistance_2(1, 3));
+        Map<Integer, Integer> map = new HashMap<>();
     }
 
     public static int hammingDistance(int x, int y) {

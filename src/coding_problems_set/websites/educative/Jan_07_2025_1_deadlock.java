@@ -4,6 +4,7 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -22,7 +23,7 @@ public class Jan_07_2025_1_deadlock {
         }
         return instance;
     }
-    // deadlock example
+    // 1. deadlock example
     private static final Object LOCK_1 = new Object();
     private static final Object LOCK_2 = new Object();
     public void deadScenario() {
@@ -190,6 +191,24 @@ public class Jan_07_2025_1_deadlock {
     }
 
     // ForkJoinPool
+    private static void convertList(List<Long> list) {
+        long[] arr = {1L, 2L, 3L};
+        List<Long> list1 = Arrays.stream(arr).boxed().toList();
+        arr = list.stream().mapToLong(Long::longValue).toArray();
+    }
+
+    private static void threeWaysSortList(List<Long> list) {
+        // Way1 Collections.sort()
+        Collections.sort(list);
+        Collections.sort(list, Collections.reverseOrder());
+        // Way2 List.sort()
+        list.sort(Long::compareTo);
+        list.sort(Comparator.naturalOrder());
+        list.sort(Comparator.reverseOrder());
+        // Way3 Stream -> Return new list
+        List<Long> longList = list.stream().sorted().toList();
+        List<Long> sortedListDesc = list.stream().sorted(Comparator.reverseOrder()).toList();
+    }
 
     public static void main(String[] args) {
         List<String> safelist = Collections.synchronizedList(new ArrayList<String>());
@@ -197,6 +216,17 @@ public class Jan_07_2025_1_deadlock {
         Map<String, String> concurrentMap = new ConcurrentHashMap<>();
         Map<String, String> concurrentMap_1 = new ConcurrentSkipListMap<>();
         Set<String> concurrentSet = new ConcurrentSkipListSet<>();
+        FutureTask<String> futureTask = new FutureTask(
+                () -> {
+                    String result = "";
+                    for (int i = 0; i < 1000000; i++) {
+                        result += i;
+                    }
+                    return result;
+                }
+        );
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(futureTask);
 
     }
 }
